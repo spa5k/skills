@@ -21,12 +21,14 @@ The skill is one Markdown file. It has no hooks, runtime scripts, dependencies, 
 
 ### With the skills CLI
 
-This method requires Node.js, npm, and Git.
+This method requires Node.js, npm, and Git. These examples use a POSIX shell.
+
+The CLI sends usage telemetry by default. Each command below sets `DISABLE_TELEMETRY=1`. This disables usage telemetry and security-audit requests. See the [CLI telemetry documentation](https://github.com/vercel-labs/skills/blob/main/docs/troubleshooting.md#telemetry).
 
 Run this command from your project's root folder:
 
 ```sh
-npx skills add spa5k/skills --skill do-less
+DISABLE_TELEMETRY=1 npx skills add spa5k/skills --skill do-less
 ```
 
 Follow the prompts to select your agent and install method. The default scope is the current project.
@@ -34,7 +36,7 @@ Follow the prompts to select your agent and install method. The default scope is
 To install for all your projects, use `--global`:
 
 ```sh
-npx skills add spa5k/skills --skill do-less --global
+DISABLE_TELEMETRY=1 npx skills add spa5k/skills --skill do-less --global
 ```
 
 Use `--agent codex` to select Codex. Use `--agent claude-code` to select Claude Code. See the [skills CLI reference](https://github.com/vercel-labs/skills/blob/main/docs/commands.md#skills-add) for other options.
@@ -86,13 +88,13 @@ If the skill does not appear, start a new session. Check that the file is named 
 For a project install made with the skills CLI, run:
 
 ```sh
-npx skills update do-less --project
+DISABLE_TELEMETRY=1 npx skills update do-less --project
 ```
 
 To remove that install, run:
 
 ```sh
-npx skills remove do-less
+DISABLE_TELEMETRY=1 npx skills remove do-less
 ```
 
 Use `--global` instead of `--project` to update a user install. Add `--global` to the remove command to remove a user install.
